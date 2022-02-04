@@ -109,8 +109,8 @@ const RequstUseManual = ()=>{
   const [state, setState] = useState('');
   
 
-  //动态请求
-  const { loading, run } = useRequest(changeUsername, {
+  //动态请求,在使用useRequset中,冒号后边相当于取得别名
+  const { loading, run:myRun } = useRequest(changeUsername, {
     manual: true,
     debounceWait:3000,
     //run里边的参数会到这里
@@ -141,7 +141,7 @@ const RequstUseManual = ()=>{
         placeholder="Please enter username"
         style={{ width: 240, marginRight: 16 }}
       />
-      <button disabled={loading} type="button" onClick={() => run(state)}>
+      <button disabled={loading} type="button" onClick={() => myRun(state)}>
         {loading ? 'Loading' : 'Edit'}
       </button>
     </div>
